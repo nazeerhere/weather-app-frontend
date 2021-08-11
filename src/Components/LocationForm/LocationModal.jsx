@@ -1,8 +1,14 @@
 import React, { useState } from "react"
 import axios from "axios"
+import url from "../../BackendUrl"
 
 export default function LocationModal() {
-    const [Location, setLocation] = useState("")
+const initialState = {
+    Location: ""
+}
+
+    const [Location, setLocation] = useState(initialState)
+    const [data, setData] = useState({})
 
     const handleChange = (event) => {
         const {id, value} = event.target
@@ -12,17 +18,29 @@ export default function LocationModal() {
                 [id]: value,
             }
         })
-        console.log(Location)
     }
 
     function handleSubmit(event) {
         event.preventDefault()
         axios.post(
-            `http://localhost:7001/`, 
-            Location    
+            `http://localhost:${url.value}/history`, 
+            Location
         )
-        document.getElementById("location").innerHTML = ""
+            .then(res => {
+                if(res.data.length < 0) {
+                    setData(res.data)
+                    console.log(data)
+                    console.log("we got data!!")
+                } else {
+                    console.log("something went wrong")
+                }
+            })
+
+        document.getElementById("Location").innerHTML = ""
         console.log("HELLO FROM THE OTHER SIDE")
+        console.log(Location.Location)
+
+        // document.location.href = `${Location.location}-weather`
     }
 
     return(
@@ -32,11 +50,13 @@ export default function LocationModal() {
                 <span id="LocationTitle" > Select Location </span>
                 <input type="text"
                         placeholder="Type here.."
-                        id="location"
+                        id="Location"
                         onChange={handleChange}
                         required
                         />
-                <button>Do something</button>
+                <button
+                    onClick={handleSubmit}
+                >Do something</button>
             </form>
         </div>
     )
