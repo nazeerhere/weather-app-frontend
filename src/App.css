@@ -1,38 +1,49 @@
-.App {
+body {
+  background-color: rgb(16, 17, 59);
+  color: whitesmoke;
+}
+
+.Nav {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 50px;
+  padding: 35px;
+}
+
+.Home {
+  color: red;
+  /* background-color: aliceblue; */
+  height: 600px;
+
+}
+
+.LocationModal {
+  border: 1px solid rgb(150, 139, 139);
+  background-color: black;
+  width: 700px;
+  height: 300px;
+  position: relative;
+  left: 28%;
+  top: 25%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#LocationTitle {
+  color: wheat;
+  font-weight: bolder;
+  font-size: 30px;
+  margin-bottom: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#ModalContent {
+  position: relative;
+  top: 80px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#ModalContent input {
+  height: 30px;
+  width: 50%;
+  margin: auto;
 }
