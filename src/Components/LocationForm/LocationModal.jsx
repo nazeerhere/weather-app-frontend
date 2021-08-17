@@ -56,7 +56,7 @@ export default function LocationModal({ Forcasts, setForcasts }) {
                 />
                 <button
                     onClick={handleSubmit}
-                >Do something</button>
+                >See Forcast</button>
             </form>
         </div>
     )
