@@ -23,7 +23,6 @@ export default function Home() {
         return(
             <div className="Home">
                 <WeatherModal Forcasts={Forcasts} setForcasts={setForcasts} />
-                <p>J. cole</p>
             </div>
         )
     }
